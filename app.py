@@ -12,11 +12,11 @@ st.title("Nave Industrial 3D")
 with st.sidebar:
     st.header("Parámetros de la Nave")
 
-    column_height = st.number_input("Altura de Columnas", min_value=2, max_value=10, value=10, step=1)
-    rafter_height = st.number_input("Altura de Vigas", min_value=1, max_value=5, value=5, step=1)
-    frame_spacing = st.number_input("Espaciado de Pórticos", min_value=1, max_value=10, value=5, step=1)
-    num_frames = st.number_input("Número de Pórticos", min_value=1, max_value=7, value=3, step=1)
-    width = st.number_input("Ancho de la Nave", min_value=4, max_value=20, value=10, step=1)
+    column_height = st.number_input("Altura de Columnas", min_value=1, max_value=15, value=0, step=1)
+    rafter_height = st.number_input("Altura de Vigas", min_value=1, max_value=15, value=0, step=1)
+    frame_spacing = st.number_input("Espaciado de Pórticos", min_value=1, max_value=15, value=0, step=1)
+    num_frames = st.number_input("Número de Pórticos", min_value=1, max_value=15, value=0, step=1)
+    width = st.number_input("Ancho de la Nave", min_value=1, max_value=25, value=0, step=1)
 
 def plot_correct_warehouse(column_height, rafter_height, frame_spacing, num_frames, width):
     fig = plt.figure(figsize=(8, 6))  # Reducir el tamaño del gráfico
@@ -59,7 +59,11 @@ def plot_correct_warehouse(column_height, rafter_height, frame_spacing, num_fram
     ax.set_xlabel('X')
     ax.set_ylabel('Y')
     ax.set_zlabel('Z')
-    ax.set_title("Nave Industrial 3D")
+    ax.set_title("")
+
+    ax.view_init(elev=20, azim=-60)  # Ajusta la cámara para mejor visibilidad del eje Z
+    ax.set_box_aspect([1, 1, 0.8])   # Mantiene proporción uniforme
+    ax.grid(True)                     # Activa la cuadrícula
 
     return fig
 
