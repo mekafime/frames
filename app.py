@@ -61,9 +61,12 @@ def plot_correct_warehouse(column_height, rafter_height, frame_spacing, num_fram
     ax.set_zlabel('Z')
     ax.set_title("")
 
-    ax.view_init(elev=20, azim=-60)  # Ajusta la cámara para mejor visibilidad del eje Z
-    ax.set_box_aspect([1, 1, 0.8])   # Mantiene proporción uniforme
-    ax.grid(True)                     # Activa la cuadrícula
+    # Ajustar la visibilidad del eje Z
+    ax.zaxis.set_tick_params(labelsize=10)
+
+    # Ajustar vista de la cámara y proporción
+    ax.view_init(elev=25, azim=-45)
+    ax.set_box_aspect([1, 1, 1])
 
     return fig
 
