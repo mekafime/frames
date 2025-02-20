@@ -6,7 +6,7 @@ from mpl_toolkits.mplot3d.art3d import Poly3DCollection
 
 st.set_page_config(layout="wide")
 
-st.title("Nave Industrial 3D")
+st.title("Gráfica")
 
 with st.sidebar:
     st.header("Parámetros de la Nave")
@@ -54,10 +54,6 @@ def plot_correct_warehouse(column_height, rafter_height, frame_spacing, num_fram
                 x, y, z = zip(*element)
                 ax.plot(x, y, z, color='blue', linewidth=2)
 
-    ax.set_xlabel('X')
-    ax.set_ylabel('Y')
-    ax.set_zlabel('Z')
-    ax.set_title("Nave Industrial 3D")
 
     return fig
 
