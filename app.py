@@ -6,7 +6,7 @@ from mpl_toolkits.mplot3d.art3d import Poly3DCollection
 # Ajustar ancho de la app para que se vea mejor
 st.set_page_config(layout="wide")  # Hace que la app use todo el ancho de la pantalla
 
-st.title("Nave Industrial 3D")
+st.title("")
 
 # Usar barra lateral para sliders y reducir el espacio en la UI
 with st.sidebar:
@@ -56,9 +56,9 @@ def plot_correct_warehouse(column_height, rafter_height, frame_spacing, num_fram
                 x, y, z = zip(*element)
                 ax.plot(x, y, z, color='blue', linewidth=2)
 
-    ax.set_xlabel('X')
-    ax.set_ylabel('Y')
-    ax.set_zlabel('Z')
+    ax.set_xlabel('')
+    ax.set_ylabel('')
+    ax.set_zlabel('')
     ax.set_title("")
 
     return fig
