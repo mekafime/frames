@@ -1,39 +1,35 @@
 import streamlit as st
 import numpy as np
 import matplotlib.pyplot as plt
+import matplotlib.ticker as ticker
 from mpl_toolkits.mplot3d.art3d import Poly3DCollection
 
-st.set_page_config(layout="wide") 
+st.set_page_config(layout="wide")
 
-st.title("")
+st.title("Nave Industrial 3D")
 
-# Usar barra lateral para sliders y reducir el espacio en la UI
 with st.sidebar:
     st.header("Parámetros de la Nave")
 
-    column_height = st.number_input("Altura de Columnas", min_value=1.0, max_value=15.0, value=4.0, step=0.1) 
-    rafter_height = st.number_input("Altura de Vigas", min_value=1.0, max_value=15.0, value=2.0, step=0.1) 
-    frame_spacing = st.number_input("Espaciado de Pórticos", min_value=1.0, max_value=15.0, value=5.0, step=0.1) 
-    num_frames = st.number_input("Número de Pórticos", min_value=1, max_value=15, value=3, step=1) 
-    width = st.number_input("Ancho de la Nave", min_value=1.0, max_value=25.0, value=10.0, step=0.1) 
-
+    column_height = st.number_input("Altura de Columnas", min_value=1.0, max_value=15.0, value=4.0, step=0.1)
+    rafter_height = st.number_input("Altura de Vigas", min_value=1.0, max_value=15.0, value=2.0, step=0.1)
+    frame_spacing = st.number_input("Espaciado de Pórticos", min_value=1.0, max_value=15.0, value=5.0, step=0.1)
+    num_frames = st.number_input("Número de Pórticos", min_value=1, max_value=15, value=3, step=1)
+    width = st.number_input("Ancho de la Nave", min_value=1.0, max_value=25.0, value=10.0, step=0.1)
 
 def plot_correct_warehouse(column_height, rafter_height, frame_spacing, num_frames, width):
-    fig = plt.figure(figsize=(8, 6))  # Reducir el tamaño del gráfico
+    fig = plt.figure(figsize=(8, 6))
     ax = fig.add_subplot(111, projection='3d')
 
-    # Ajustar límites de la gráfica
     ax.set_xlim([0, (num_frames - 1) * frame_spacing])
     ax.set_ylim([0, width])
     ax.set_zlim([0, column_height + rafter_height])
 
+    # Forzar enteros en el eje X
     ax.xaxis.set_major_locator(ticker.MaxNLocator(integer=True))
 
-    # Dibujar la estructura
     for i in range(num_frames):
         x_offset = i * frame_spacing
-
-        # Columnas
         column1 = [(x_offset, 0, 0), (x_offset, 0, column_height)]
         column2 = [(x_offset, width, 0), (x_offset, width, column_height)]
         rafter_left = [(x_offset, 0, column_height), (x_offset, width / 2, column_height + rafter_height)]
@@ -58,10 +54,10 @@ def plot_correct_warehouse(column_height, rafter_height, frame_spacing, num_fram
                 x, y, z = zip(*element)
                 ax.plot(x, y, z, color='blue', linewidth=2)
 
-    ax.set_xlabel('')
-    ax.set_ylabel('')
-    ax.set_zlabel('')
-    ax.set_title("")
+    ax.set_xlabel('X')
+    ax.set_ylabel('Y')
+    ax.set_zlabel('Z')
+    ax.set_title("Nave Industrial 3D")
 
     return fig
 
