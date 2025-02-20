@@ -27,6 +27,8 @@ def plot_correct_warehouse(column_height, rafter_height, frame_spacing, num_fram
     ax.set_ylim([0, width])
     ax.set_zlim([0, column_height + rafter_height])
 
+    ax.xaxis.set_major_locator(ticker.MaxNLocator(integer=True))
+
     # Dibujar la estructura
     for i in range(num_frames):
         x_offset = i * frame_spacing
