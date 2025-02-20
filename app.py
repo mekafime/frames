@@ -12,11 +12,11 @@ st.title("Nave Industrial 3D")
 with st.sidebar:
     st.header("Parámetros de la Nave")
 
-    column_height = st.number_input("Altura de Columnas", min_value=1, max_value=15, value=0, step=1)
-    rafter_height = st.number_input("Altura de Vigas", min_value=1, max_value=15, value=0, step=1)
-    frame_spacing = st.number_input("Espaciado de Pórticos", min_value=1, max_value=15, value=0, step=1)
-    num_frames = st.number_input("Número de Pórticos", min_value=1, max_value=15, value=0, step=1)
-    width = st.number_input("Ancho de la Nave", min_value=1, max_value=25, value=0, step=1)
+    column_height = st.number_input("Altura de Columnas", min_value=1, max_value=15, value=4, step=1)
+    rafter_height = st.number_input("Altura de Vigas", min_value=1, max_value=15, value=2, step=1)
+    frame_spacing = st.number_input("Espaciado de Pórticos", min_value=1, max_value=15, value=5, step=1)
+    num_frames = st.number_input("Número de Pórticos", min_value=1, max_value=15, value=3, step=1)
+    width = st.number_input("Ancho de la Nave", min_value=1, max_value=25, value=10, step=1)
 
 def plot_correct_warehouse(column_height, rafter_height, frame_spacing, num_frames, width):
     fig = plt.figure(figsize=(8, 6))  # Reducir el tamaño del gráfico
