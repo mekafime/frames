@@ -3,8 +3,7 @@ import numpy as np
 import matplotlib.pyplot as plt
 from mpl_toolkits.mplot3d.art3d import Poly3DCollection
 
-# Ajustar ancho de la app para que se vea mejor
-st.set_page_config(layout="wide")  # Hace que la app use todo el ancho de la pantalla
+st.set_page_config(layout="wide") 
 
 st.title("")
 
@@ -12,11 +11,12 @@ st.title("")
 with st.sidebar:
     st.header("Parámetros de la Nave")
 
-    column_height = st.number_input("Altura de Columnas", min_value=1, max_value=15, value=4, step=1)
-    rafter_height = st.number_input("Altura de Vigas", min_value=1, max_value=15, value=2, step=1)
-    frame_spacing = st.number_input("Espaciado de Pórticos", min_value=1, max_value=15, value=5, step=1)
-    num_frames = st.number_input("Número de Pórticos", min_value=1, max_value=15, value=3, step=1)
-    width = st.number_input("Ancho de la Nave", min_value=1, max_value=25, value=10, step=1)
+    column_height = st.number_input("Altura de Columnas", min_value=1.0, max_value=15.0, value=4.0, step=0.1) 
+    rafter_height = st.number_input("Altura de Vigas", min_value=1.0, max_value=15.0, value=2.0, step=0.1) 
+    frame_spacing = st.number_input("Espaciado de Pórticos", min_value=1.0, max_value=15.0, value=5.0, step=0.1) 
+    num_frames = st.number_input("Número de Pórticos", min_value=1, max_value=15, value=3, step=1) 
+    width = st.number_input("Ancho de la Nave", min_value=1.0, max_value=25.0, value=10.0, step=0.1) 
+
 
 def plot_correct_warehouse(column_height, rafter_height, frame_spacing, num_frames, width):
     fig = plt.figure(figsize=(8, 6))  # Reducir el tamaño del gráfico
