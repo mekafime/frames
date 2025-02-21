@@ -7,7 +7,7 @@ from mpl_toolkits.mplot3d.art3d import Poly3DCollection
 st.set_page_config(layout="wide")
 
 with st.sidebar:
-    st.header("Parámetros de la Nave")
+    st.header("Parámetros de la Nave con Techo a Dos Aguas")
 
     column_height = st.number_input("Altura de Columnas", min_value=1.0, max_value=15.0, value=4.0, step=0.1)
     rafter_height = st.number_input("Altura de Vigas", min_value=1.0, max_value=15.0, value=2.0, step=0.1)
